@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryContract
 {
-    internal interface ICountryRepository
+    public interface ICountryRepository
     {
         /// <summary>
         /// Adds a new country object to the data store

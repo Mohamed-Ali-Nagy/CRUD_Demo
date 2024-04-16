@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryContract
 {
-    internal interface IPersonRepository
+    public interface IPersonRepository
     {
         /// <summary>
         /// Adds a person object to the data store
