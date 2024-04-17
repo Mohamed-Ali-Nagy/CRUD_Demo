@@ -30,7 +30,7 @@ namespace RepositoryContract
         /// </summary>
         /// <param name="personID">PersonID (guid) to search</param>
         /// <returns>A person object or null</returns>
-        Task<Person?> GetPersonByPersonID(Guid personID);
+        Task<Person?> GetPersonByPersonID(Guid? personID);
 
 
         /// <summary>

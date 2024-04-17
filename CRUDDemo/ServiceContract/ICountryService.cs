@@ -7,9 +7,9 @@ namespace ServiceContract
 {
     public interface ICountryService
     {
-        CountryResponseDTO AddCountry(CountryAddDTO? countryAddRequest);
-        List<CountryResponseDTO> GetAllCountries();
+        Task<CountryResponseDTO> AddCountry(CountryAddDTO countryAddRequest);
+       Task<List<CountryResponseDTO>> GetAllCountries();
 
-        CountryResponseDTO? GetCountryById(Guid? countryId);
+        Task<CountryResponseDTO?> GetCountryById(Guid? countryId);
     }
 }

@@ -15,20 +15,20 @@ namespace ServiceContract
       /// <param name="personAddRequest">Person to add</param>
       /// <returns>Returns the same person details, along with newly generated PersonID</returns>
       /// <returns>Returns the same person details, along with newly generated PersonID</returns>
-        PersonResponseDTO? AddPerson(PersonAddDTO? personAddDTO);
+        Task<PersonResponseDTO?> AddPerson(PersonAddDTO? personAddDTO);
 
         /// <summary>
         /// Returns all persons
         /// </summary>
         /// <returns>Returns a list of objects of PersonResponse type</returns>
-        List<PersonResponseDTO> GetAllPersons();
+        Task<List<PersonResponseDTO>> GetAllPersons();
 
         /// <summary>
         /// Returns the person object based on the given person id
         /// </summary>
         /// <param name="personID">Person id to search</param>
         /// <returns>Returns matching person object</returns>
-        PersonResponseDTO? GetPersonById(Guid? personId);
+        Task<PersonResponseDTO?> GetPersonById(Guid? personId);
 
         /// <summary>
         /// Returns all person objects that matches with the given search field and search string
@@ -36,7 +36,7 @@ namespace ServiceContract
         /// <param name="searchBy">Search field to search</param>
         /// <param name="searchString">Search string to search</param>
         /// <returns>Returns all matching persons based on the given search field and search string</returns>
-        List<PersonResponseDTO> GetFilteredPersons(string searchBy, string? searchString);
+       Task<List<PersonResponseDTO>> GetFilteredPersons(string searchBy, string? searchString);
 
         /// <summary>
         /// Returns sorted list of persons
@@ -45,19 +45,19 @@ namespace ServiceContract
         /// <param name="sortBy">Name of the property (key), based on which the persons should be sorted</param>
         /// <param name="sortOrder">ASC or DESC</param>
         /// <returns>Returns sorted persons as PersonResponse list</returns>
-        public List<PersonResponseDTO> GetSortedPersons(List<PersonResponseDTO> allPersons, string sortBy, SortOrderOptions sortOrder);
+        public Task<List<PersonResponseDTO>> GetSortedPersons(List<PersonResponseDTO> allPersons, string sortBy, SortOrderOptions sortOrder);
 
         /// <summary>
         /// Updates the specified person details based on the given person ID
         /// </summary>
         /// <param name="personUpdateRequest">Person details to update, including person id</param>
         /// <returns>Returns the person response object after updation</returns>
-        PersonResponseDTO UpdatePerson(PersonUpdateDTO? personUpdateRequest);
+       Task<PersonResponseDTO> UpdatePerson(PersonUpdateDTO? personUpdateRequest);
         /// <summary>
         /// Deletes a person based on the given person id
         /// </summary>
         /// <param name="PersonId">PersonID to delete</param>
         /// <returns>Returns true, if the deletion is successful; otherwise false</returns>
-        bool DeletePerson(Guid? personID);
+       Task<bool> DeletePerson(Guid? personID);
     }
 }

@@ -40,7 +40,7 @@ namespace Repository
            return await _db.Persons.Include("Country").Where(predicate).ToListAsync();
         }
 
-        public async Task<Person?> GetPersonByPersonID(Guid personID)
+        public async Task<Person?> GetPersonByPersonID(Guid? personID)
         {
             return await _db.Persons.Include("Country").FirstOrDefaultAsync(p=>p.PersonID == personID);
         }
